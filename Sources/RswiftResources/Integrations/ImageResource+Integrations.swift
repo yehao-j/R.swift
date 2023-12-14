@@ -84,6 +84,17 @@ extension Image {
 }
 #endif
 
+#if os(macOS)
+import Cocoa
+
+extension ImageResource {
+    public func callAsFunction() -> NSImage? {
+        NSImage(named: name)
+    }
+}
+
+#endif
+
 
 #if os(iOS) || os(tvOS) || os(visionOS)
 import UIKit
