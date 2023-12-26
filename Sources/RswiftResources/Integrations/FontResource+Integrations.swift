@@ -36,6 +36,16 @@ extension Font {
     }
 }
 
+#if canImport(Cocoa)
+
+extension FontResource {
+    public func callAsFunction(size: CGFloat) -> NSFont? {
+        NSFont(name: name, size: size)
+    }
+}
+
+#endif
+
 #if canImport(UIKit)
 import UIKit
 
